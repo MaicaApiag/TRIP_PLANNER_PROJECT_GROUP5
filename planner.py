@@ -8,7 +8,7 @@ import os
 
 #Starting Window
 main = Tk()
-main.geometry("600x890")
+main.geometry("600x710")
 main.resizable(0,0)
 positionRight = int((main.winfo_screenwidth()/2 - 310))
 positionDown = int((main.winfo_screenheight()/2 - 389))
@@ -453,7 +453,7 @@ def hotelDetails(comm,hotel,nEvent):
     hWindow = Toplevel(bg="#5f9ea0")
     hWindow.geometry("330x475")
     hWindow.resizable(0,0)
-    hWindow.geometry("+{}+{}".format(positionRight+138, positionDown+110))
+    hWindow.geometry("+{}+{}".format(positionRight+300, positionDown+110))
 
     for x in bookList:
         if x[4]==nEvent:
@@ -519,7 +519,7 @@ def transpoDetails(comm,transpo,nEvent):
     tWindow = Toplevel(bg="#5f9ea0")
     tWindow.geometry("330x350")
     tWindow.resizable(0,0)
-    tWindow.geometry("+{}+{}".format(positionRight+138, positionDown+173))
+    tWindow.geometry("+{}+{}".format(positionRight-35, positionDown+173))
 
     for x in transpoList:
         if x[4]==nEvent:
@@ -600,7 +600,7 @@ tripButton.grid(row=0,column=3,padx=(0,5),pady=5)
 #Code for creating a frame with a scrollbar
 wrapper = LabelFrame(main)
 wrapper.grid(row=2, column=0)
-mycanvas = Canvas(wrapper, width=576,height=700)
+mycanvas = Canvas(wrapper, width=576,height=565)
 listFrame= Frame(mycanvas)
 yscrollbar = Scrollbar(wrapper, orient="vertical", command=mycanvas.yview)
 yscrollbar.pack(side=RIGHT, fill="y")
