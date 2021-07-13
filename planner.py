@@ -1,3 +1,11 @@
+"""
+GROUP 5 - TRIP PLANNER
+MEMBERS:
+    APIAG, MAICA
+    TAGAYTAY, JOE CARLO 
+    UROT, JHERYLL 
+"""
+
 from tkinter import *
 from tkinter import ttk
 import sqlite3
@@ -5,6 +13,7 @@ import re
 from tkinter import messagebox
 import tkinter.font as font
 import os
+from tkcalendar import DateEntry
 
 #Starting Window
 main = Tk()
@@ -165,10 +174,10 @@ def tripDetails(comm,trip):
     desti = Entry(this,width=50)
     desti.grid(row=3,column=0,padx=(5,0),pady=5)
     Label(this,text="Start Date :",font = ('Bookman Old Style', 10),anchor='w',bg="#5f9ea0",fg="white").grid(row=4,column=0,padx=(5,0),pady=5,sticky='w')
-    sDate = Entry(this,width=50)
+    sDate = DateEntry(this,width=47,background="gray", foreground="snow")
     sDate.grid(row=5,column=0,padx=(5,0),pady=5)
     Label(this,text="End Date :",font = ('Bookman Old Style', 10),anchor='w',bg="#5f9ea0",fg="white").grid(row=6,column=0,padx=(5,0),pady=5,sticky='w') 
-    eDate = Entry(this,width=50)
+    eDate = DateEntry(this,width=47,background="gray", foreground="snow")
     eDate.grid(row=7,column=0,padx=(5,0),pady=5)
     holder = Frame(this,bg="#5f9ea0")
     holder.grid(row=8,column=0)
@@ -180,8 +189,8 @@ def tripDetails(comm,trip):
     if comm == "edit":
         name.insert(END,trip[1])
         desti.insert(END,trip[2])
-        sDate.insert(END,trip[3])
-        eDate.insert(END,trip[4])
+        sDate.set_date(trip[3])
+        eDate.set_date(trip[4])
 
 #Function for displaying the list of trips in the database          
 def showTrips(*args):
@@ -299,7 +308,7 @@ def itineDetails(comm,itine,nTrip):
     this = LabelFrame(iWindow,text="Itinerary Details",font = ('Cinzel', 20,'bold'),labelanchor='n',bg="#5f9ea0",fg="white")
     this.pack(padx=5,pady=5,fill='both',expand='yes')
     Label(this,text="When?",font = ('Bookman Old Style', 10),anchor='w',bg="#5f9ea0",fg="white").grid(row=0,column=0,padx=(5,0),pady=(15,5),sticky='w')
-    date = Entry(this,width=50)
+    date = DateEntry(this,width=47,background="gray", foreground="snow")
     date.grid(row=1,column=0,columnspan=5,padx=(5,0),pady=5)
     Label(this,text="Where is this located?",font = ('Bookman Old Style', 10),anchor='w',bg="#5f9ea0",fg="white").grid(row=2,column=0,padx=(5,0),pady=5,sticky='w')
     location = Entry(this,width=50)
@@ -315,7 +324,7 @@ def itineDetails(comm,itine,nTrip):
     save.pack(side=RIGHT,pady=5,padx=(5,0))
 
     if comm == "edit":
-        date.insert(END,itine[1])
+        date.set_date(itine[1])
         location.insert(END,itine[2])
         details.insert(END,itine[3])
 
