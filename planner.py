@@ -209,7 +209,7 @@ def showTrips(*args):
             holder1 = Frame(tripFrame,bg="white")
             holder1.pack(side=LEFT)
             Label(holder1, text=trip[1],font = ('Tahoma', 27,'bold'),bg="white").grid(row=0,column=0,padx=5,pady=2,sticky=W)
-            Label(holder1, text=trip[2]+" | "+trip[3]+" - "+trip[4],font = ('Calisto MT', 10),bg="white").grid(row=1,column=0,padx=5,pady=2)
+            Label(holder1, text=trip[2]+" | "+trip[3]+" - "+trip[4],font = ('Calisto MT', 10),bg="white").grid(row=1,column=0,padx=5,pady=2,sticky=W)
             holder2 = Frame(tripFrame,bg="white")
             holder2.pack(side=RIGHT)
             view = Button(holder2,text="View Itineraries",font = ('Bookman Old Style', 10),bg="#5f9ea0",width=20,command=lambda x=trip:changeTo(x))
